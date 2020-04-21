@@ -1,0 +1,20 @@
+input {
+    width: 59px;
+    outline: none;
+}
+
+.spin-button {
+  border-radius: 50%;
+  -webkit-transition: -webkit-transform .3s ease-in-out;
+  transition: transform .3s ease-in-out;
+  outline: none;
+}
+
+.spin-button:active {
+  -webkit-transform: rotate(360deg);
+  transform: rotate(360deg);
+}
+
+.whole-card {
+    padding-top: 300px;
+}
