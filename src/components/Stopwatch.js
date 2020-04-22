@@ -26,22 +26,25 @@ class Stopwatch extends React.Component {
         }, 10);
     }
 
-    stopTimer = (e) => {
+    stopTimer = () => {
         this.setState({
             timerOn: false
         });
         clearInterval(this.timer);
+        this.props.onTimerFinish();
+        console.log(this.props);
+        
     }
 
     // as soon as page loads, timer will start 
     // once 1 min has passed, run stopTimer function
     componentDidMount() {
         this.startTimer();
-        setTimeout(() => this.stopTimer(), 60000);
+        setTimeout(() => this.stopTimer(), 1000);
     }
 
     render() {
-
+        
         const { timerTime } = this.state;
         // Vars to measure time
         let centiseconds = ("0" + (Math.floor(timerTime / 10) % 100)).slice(-2);

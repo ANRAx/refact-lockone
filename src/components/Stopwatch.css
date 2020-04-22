@@ -9,11 +9,12 @@
 }
 
 .Stopwatch {
-  /* margin-left: 300px; */
+  margin: auto;
+  margin-top: 155px;
   border: 2px solid grey;
   border-radius: 4px;
-  /* margin-top: 150px; */
-  /* padding: 25px; */
+  /* margin-bottom: 250px; */
+  padding: 25px;
   width: 200px;
   background-color: white;
   box-shadow: 0 3px 6px rgb(12, 12, 12);

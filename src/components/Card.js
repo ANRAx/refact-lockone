@@ -13,7 +13,8 @@ class Card extends React.Component {
         this.state = {
             posOne: "",
             posTwo: "",
-            posThree: ""
+            posThree: "",
+            inputDisabled: false
         }
     }
 
@@ -34,6 +35,16 @@ class Card extends React.Component {
         // otherwise just alert success and return true
         alert(success);
         return true;
+    }
+
+    disableInput = () => {
+        this.setState({
+            inputDisabled: true
+        });
+
+        if (this.state.) {
+            
+        }
     }
 
     // func to reset state to empty strings
@@ -73,7 +84,7 @@ class Card extends React.Component {
     render() {
         return(
            <div>
-                <Stopwatch />
+                <Stopwatch onTimerFinish={this.disableInput} />
                 <div className="whole-card">
                     {/* Stopwatch child component */}
                     {/* <Stopwatch /> */}
@@ -95,7 +106,7 @@ class Card extends React.Component {
                         <button className="bg-green dib br3 pa3 ma2 bw1 shadow-5 spin-button" variant="secondary" type="submit" onClick={this.checkAnswer}>Unlock</button>
                     </div>
                 </div>
-               
+                
            </div>
         );
     }
