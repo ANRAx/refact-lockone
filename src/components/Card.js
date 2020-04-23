@@ -11,9 +11,11 @@ class Card extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            posOne: "",
-            posTwo: "",
-            posThree: "",
+            positions: {
+                posOne: "",
+                posTwo: "",
+                posThree: ""
+            },
             inputDisabled: false
         }
     }
@@ -21,14 +23,14 @@ class Card extends React.Component {
     // func to check users input against lockCombo
     checkAnswer = () => {
         // create a var that takes the state (which will be relected by the user's input) and returns the values as an arr
-        const lockInputArr = Object.values(this.state);
-
+        const lockInputArr = Object.values(this.state.positions);
+        
         // loop through the length of our arr
         for (let i = 0; i < lockInputArr.length; i++) { 
             // if the index of our two arr are not equal, alert failure, reset state with this.reset(), and return false
             if(lockInputArr[i] !== lockCombo[i]) {
+                // reset();
                 alert(failure);
-                this.reset();
                 return false;
             }
         }
@@ -42,23 +44,30 @@ class Card extends React.Component {
             inputDisabled: true
         });
 
-        if (this.state.) {
+        // TODO Finish logic for disableInput function
+        // if (this.state.inputDisabled === true) {
             
-        }
+        // }
     }
 
     // func to reset state to empty strings
-    reset = () => {
-        this.setState({
-            posOne: ""
-        });
-        this.setState({
-            posTwo: ""
-        });
-        this.setState({
-            posThree: ""
-        });
-    }
+    // reset = () => {
+    //     this.setState({
+    //         positions: {
+    //             posOne: ""
+    //         }
+    //     });
+    //     this.setState({
+    //         positions: {
+    //             posTwo: ""
+    //         }
+    //     });
+    //     this.setState({
+    //         positions: {
+    //             posThree: ""
+    //         }
+    //     });
+    // }
 
     // func to handle user input and change state to user input value
     handleInputChange = (e) => {
@@ -68,31 +77,38 @@ class Card extends React.Component {
 
         if (position === "1") {
             this.setState({
-                posOne: value
+                positions: {
+                    posOne: value
+                }
             });
         } else if (position === "2") {
             this.setState({
-                posTwo: value
+                positions: {
+                    posTwo: value
+                }   
             });
         } else if (position === "3") {
             this.setState({
-                posThree: value
+                positions: {
+                    posThree: value
+                }
             });
         }
     }
 
     render() {
+        console.log(Object.values(this.state.positions));
+        
         return(
            <div>
+                {/* Stopwatch child component */}
                 <Stopwatch onTimerFinish={this.disableInput} />
                 <div className="whole-card">
-                    {/* Stopwatch child component */}
-                    {/* <Stopwatch /> */}
                     {/* positions to be populated upon user input */}
                     <div>
-                        <span className="bg-green dib br3 pa3 ma2 grow bw4 shadow-5">{this.state.posOne}</span>
-                        <span className="bg-green dib br3 pa3 ma2 grow bw4 shadow-5">{this.state.posTwo}</span>
-                        <span className="bg-green dib br3 pa3 ma2 grow bw4 shadow-5">{this.state.posThree}</span>
+                        <span className="bg-green dib br3 pa3 ma2 grow bw4 shadow-5">{this.state.positions.posOne}</span>
+                        <span className="bg-green dib br3 pa3 ma2 grow bw4 shadow-5">{this.state.positions.posTwo}</span>
+                        <span className="bg-green dib br3 pa3 ma2 grow bw4 shadow-5">{this.state.positions.posThree}</span>
                     </div>
                     <br />
                     {/* form to capture user inputs */}
@@ -106,7 +122,6 @@ class Card extends React.Component {
                         <button className="bg-green dib br3 pa3 ma2 bw1 shadow-5 spin-button" variant="secondary" type="submit" onClick={this.checkAnswer}>Unlock</button>
                     </div>
                 </div>
-                
            </div>
         );
     }

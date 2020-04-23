@@ -40,7 +40,7 @@ class Stopwatch extends React.Component {
     // once 1 min has passed, run stopTimer function
     componentDidMount() {
         this.startTimer();
-        setTimeout(() => this.stopTimer(), 1000);
+        setTimeout(() => this.stopTimer(), 30000);
     }
 
     render() {

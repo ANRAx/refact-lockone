@@ -8,16 +8,26 @@ const Header = () => {
         <div>
             
             <header className="fixed w-100 shadow-3 top-0">
+                <div>
+                    <img className="logo mv1 mh3" src={require("../assets/logo192.png")} alt="" />
+                </div>
                 <Particles
                     height="95px"
                     params={{
                         particles: {
-                            number: {
-                                value: 300,
-                                density: {
-                                    enable: true,
-                                    value_area: 1200
-                                }
+                            // number: {
+                            //     value: 300,
+                            //     density: {
+                            //         enable: true,
+                            //         value_area: 1200
+                            //     }
+                            // },
+                            number: { 
+                                value: 250, 
+                                density: { 
+                                    enable: true, 
+                                    value_area: 1200 
+                                } 
                             },
                             color: {
                                 value: "#ffffff"
@@ -33,9 +43,14 @@ const Header = () => {
                                 },
                             },
                             move: {
-                                attract: {
-                                    enable: true
-                                }
+                                enable: true,
+                                speed: .5,
+                                direction: "right",
+                                random: true,
+                                straight: false,
+                                out_mode: "out",
+                                bounce: false,
+                                attract: { enable: false, rotateX: 600, rotateY: 1200 }
                             },
                             size: {
                                 value: 3,
@@ -48,7 +63,7 @@ const Header = () => {
                             },
                             line_linked: {
                                 enable: true,
-                                distance: 205.17838682439088,
+                                distance: 120,
                                 color: "#ffffff",
                                 opacity: 0.4,
                                 width: 1
@@ -57,6 +72,7 @@ const Header = () => {
                     }}
                 />
                 
+
             </header>
         </div>
     );
